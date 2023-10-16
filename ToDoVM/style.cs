@@ -1,6 +1,7 @@
 body {
     margin: 0;
     min-width: 250px;
+    background-color: #555;
   }
   
   /* Include the padding and border in an element's total width and height */
@@ -77,7 +78,7 @@ body {
   
   /* Style the header */
   .header {
-    background-color: #f44336;
+    background-color: rgba(244, 67, 54, .9);
     padding: 30px 40px;
     color: white;
     text-align: center;
