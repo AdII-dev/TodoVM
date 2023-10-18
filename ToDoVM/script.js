@@ -1,4 +1,4 @@
-//Figyelem felkeltő Title módosítás
+//Figyelem felkeltő Title módosítás, amennyiben nem ez az oldal az aktív
 window.onload = function() {
 
   let pageTitle = document.title;
@@ -6,8 +6,7 @@ window.onload = function() {
   let blinkEvent = null;
 
   document.addEventListener('visibilitychange', function(e) {
-    let isPageActive = !document.hidden;
-
+    let isPageActive = !  document.hidden;
     if(!isPageActive){
       blink();
     }else {
@@ -26,10 +25,7 @@ window.onload = function() {
     }, 100);
   }
 };
-
-
-
-// Create a "close" button and append it to each list item
+// Létrehozunk egy bezárás gombot minden elemhez.
 let myNodelist = document.getElementsByTagName("LI");
 let i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -40,7 +36,7 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
+// Kattintásra eltüntetjük az adott elemet.
 let close = document.getElementsByClassName("close");
 let j;
 for(j = 0; i < close.length; j++) {
@@ -50,7 +46,7 @@ for(j = 0; i < close.length; j++) {
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
+// Hozzáadunk egy "kész" szimbólumot amikor rá kattintunk a lista elemére.
 let list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
@@ -58,14 +54,14 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
-// Create a new list item when clicking on the "Add" button
+// Létrehozunk egy új lista elemet amikor rákattintunk a "Hozzáadás" gombra.
 function newElement() {
   let li = document.createElement("li");
   let inputValue = document.getElementById("myInput").value;
   let t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("Valamit be kell írnod!");
   } else {
     document.getElementById("myUL").appendChild(li);
   }
