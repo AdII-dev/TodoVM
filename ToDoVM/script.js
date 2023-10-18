@@ -1,3 +1,34 @@
+//Figyelem felkeltő Title módosítás
+window.onload = function() {
+
+  let pageTitle = document.title;
+  let attentionMessage = 'Ne netezz, csináld a dolgod!';
+  let blinkEvent = null;
+
+  document.addEventListener('visibilitychange', function(e) {
+    let isPageActive = !document.hidden;
+
+    if(!isPageActive){
+      blink();
+    }else {
+      document.title = pageTitle;
+      clearInterval(blinkEvent);
+    }
+  });
+
+  function blink(){
+    blinkEvent = setInterval(function() {
+      if(document.title === attentionMessage){
+        document.title = pageTitle;
+      }else {
+        document.title = attentionMessage;
+      }
+    }, 100);
+  }
+};
+
+
+
 // Create a "close" button and append it to each list item
 let myNodelist = document.getElementsByTagName("LI");
 let i;
