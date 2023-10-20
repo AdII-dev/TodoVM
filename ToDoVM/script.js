@@ -25,6 +25,49 @@ window.onload = function() {
     }, 100);
   }
 };
+
+
+let allapot = JSON.parse(localStorage.getItem('myUL')) || {
+  elemek:[
+      {
+          tartalom: "Hit the gym"
+      },
+      {
+          tartalom: "Pay bills"
+      },
+      {
+          tartalom: "Meet George"
+      },
+      {
+          tartalom: "buy eggs"
+      },
+      {
+          tartalom: "Read a book"
+      },
+      {
+          tartalom: "Organize office"
+      }
+  ]
+};
+
+function mentesLocalStoragebe(){
+  localStorage.setItem("myUL", JSON.stringify(allapot));
+}
+function renderElemek(){
+  
+  let ElemHTML = "";
+  
+  allapot.elemek.forEach((elem, index) => {
+    ElemHTML += `<li>${elem} <button onclick="kesz(${index})">Kész</button> <button onclick="torles(${index})">X</button></li>`
+
+
+    })
+
+  document.getElementById("csoki-lista").innerHTML = CsokiHTML;
+}
+
+
+
 // Létrehozunk egy bezárás gombot minden elemhez.
 let myNodelist = document.getElementsByTagName("LI");
 let i;
@@ -80,3 +123,4 @@ function newElement() {
     }
   }
 }
+
